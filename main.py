@@ -85,7 +85,7 @@ def get_all_urls(db: Session = Depends(get_db)):
         result.append({
             "original_url": url.original_url,
             "short_code": url.short_code,
-            "short_url": f"http://localhost:8000/{url.short_code}"
+            "short_url": f"https://url-shortner-tpej.onrender.com/{url.short_code}"
         })
     
     return result
@@ -108,3 +108,4 @@ def delete_url(short_code: str,db: Session = Depends(get_db)):
     db.delete(url)
     db.commit()
     return {"message": "URL deleted Successfully"}
+
